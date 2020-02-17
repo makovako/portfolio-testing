@@ -1,17 +1,23 @@
-name: Gatsby Publish
+name: Portfolio deploy
 
-on:
-  push:
-    branches:
-      - master
+on: push
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: enriikke/gatsby-gh-pages-action@v2
+      -
+        name: Checkout
+        uses: actions/checkout@v1
+      -
+        name: Build
+        run: npm init && npm build
+      -
+        name: Deploy
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v1
         with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
-          deploy-branch: gh-pages
-          gatsby-args: --prefix-paths
+          target_branch: gh-pages
+          build_dir: public
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
