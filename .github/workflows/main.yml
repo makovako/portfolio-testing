@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v1
       -
         name: Build
-        run: npm init && npm build
+        run: npm install && npm build
       -
         name: Deploy
         if: success()
