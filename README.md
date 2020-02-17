@@ -1,3 +1,5 @@
+This repository is archived. It's here just for me to reference some configs.
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
